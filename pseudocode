@@ -1,0 +1,27 @@
+Input:
+    Dataset D with feature matrix X and user labels U
+    Set of models M
+    Number of splits S
+
+For each split s in {1 ... S}:
+    Stratified split D into training and test sets
+
+    For each user u in U:
+        Create binary labels:
+            y = 1 if sample belongs to user u
+            y = 0 otherwise
+
+        For each model m in M:
+            Train m on training data
+            Compute decision scores on test data
+
+            Compute:
+                FAR
+                FRR
+                EER
+                AUC
+
+            Record metrics
+
+Aggregate results across users and splits
+Return mean and standard deviation of metrics
